@@ -1,0 +1,24 @@
+body {
+    background-color: #f4f6f8;
+    font-family: 'Noto Sans Lao', sans-serif;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.table-actions {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.line-items-table input,
+.line-items-table select,
+.deliveries-table input {
+    min-width: 90px;
+}
+
+.stat-card {
+    border-left: 4px solid #0d6efd;
+}
