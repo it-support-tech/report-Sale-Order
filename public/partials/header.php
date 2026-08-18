@@ -19,7 +19,7 @@ function nav_active(string $needle, string $path): string
     <link href="<?= url('/assets/css/app.css') ?>?v=<?= filemtime(__DIR__ . '/../assets/css/app.css') ?>" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 no-print">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 no-print sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= url('/') ?>">NTP Trading Petroleum</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">

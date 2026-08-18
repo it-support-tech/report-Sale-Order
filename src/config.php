@@ -10,12 +10,12 @@ return [
     ],
 ];
 
-return [
-    'db' => [
-        'host' =>  'db',
-        'port' =>  '5432',
-        'name' =>  'reportdn',
-        'user' => 'reportdn',
-        'pass' => 'reportdn',
-    ],
-];
+// return [
+//     'db' => [
+//         'host' =>  'db',
+//         'port' =>  '5432',
+//         'name' =>  'reportdn',
+//         'user' => 'reportdn',
+//         'pass' => 'reportdn',
+//     ],
+// ];
