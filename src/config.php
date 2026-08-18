@@ -22,11 +22,18 @@ function env(string $key, ?string $default = null): ?string
 }
 
 return [
-    'db' => [
-        'host' => env('DB_HOST', 'db'),
+    // 'db' => [
+    //     'host' => env('DB_HOST', 'db'),
+    //     'port' => env('DB_PORT', '5432'),
+    //     'name' => env('DB_NAME', 'reportdn'),
+    //     'user' => env('DB_USER', 'reportdn'),
+    //     'pass' => env('DB_PASS', 'reportdn'),
+    // ],
+     'db' => [
+        'host' => env('DB_HOST', 'localhost'),
         'port' => env('DB_PORT', '5432'),
-        'name' => env('DB_NAME', 'reportdn'),
-        'user' => env('DB_USER', 'reportdn'),
-        'pass' => env('DB_PASS', 'reportdn'),
+        'name' => env('DB_NAME', 'SaleOrder'),
+        'user' => env('DB_USER', 'ntp2026'),
+        'pass' => env('DB_PASS', 'admin@123#'),
     ],
 ];
