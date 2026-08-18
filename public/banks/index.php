@@ -9,7 +9,7 @@ require __DIR__ . '/../partials/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="mb-0">ຂໍ້ມູນທະນາຄານບໍລິສັດ</h5>
-    <a href="/banks/form.php" class="btn btn-primary">+ ເພີ່ມທະນາຄານ</a>
+    <a href="<?= url('/banks/form.php') ?>" class="btn btn-primary">+ ເພີ່ມທະນາຄານ</a>
 </div>
 
 <div class="card">
@@ -34,8 +34,8 @@ require __DIR__ . '/../partials/header.php';
                     <td><?= e($bank['account_usd']) ?></td>
                     <td><?= e($bank['swift_code']) ?></td>
                     <td class="table-actions">
-                        <a href="/banks/form.php?id=<?= $bank['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
-                        <form action="/banks/delete.php" method="post" class="d-inline" onsubmit="return confirm('ລຶບຂໍ້ມູນທະນາຄານນີ້ບໍ່?');">
+                        <a href="<?= url('/banks/form.php') ?>?id=<?= $bank['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
+                        <form action="<?= url('/banks/delete.php') ?>" method="post" class="d-inline" onsubmit="return confirm('ລຶບຂໍ້ມູນທະນາຄານນີ້ບໍ່?');">
                             <input type="hidden" name="id" value="<?= $bank['id'] ?>">
                             <button type="submit" class="btn btn-sm btn-outline-danger">ລຶບ</button>
                         </form>

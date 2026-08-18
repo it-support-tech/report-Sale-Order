@@ -16,17 +16,17 @@ $totalLiters = array_sum(array_column($order['deliveries'], 'liters'));
 $pageTitle = 'Sales Order ' . $order['document_no'];
 require __DIR__ . '/../partials/header.php';
 ?>
-<link href="/assets/css/print.css?v=<?= filemtime(__DIR__ . '/../assets/css/print.css') ?>" rel="stylesheet">
+<link href="<?= url('/assets/css/print.css') ?>?v=<?= filemtime(__DIR__ . '/../assets/css/print.css') ?>" rel="stylesheet">
 
 <div class="d-flex justify-content-end gap-2 mb-3 no-print">
     <button type="button" class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
-    <a href="/orders/form.php?id=<?= $order['id'] ?>" class="btn btn-outline-secondary">ແກ້ໄຂ</a>
-    <a href="/orders/" class="btn btn-outline-secondary">ກັບຄືນ</a>
+    <a href="<?= url('/orders/form.php') ?>?id=<?= $order['id'] ?>" class="btn btn-outline-secondary">ແກ້ໄຂ</a>
+    <a href="<?= url('/orders/') ?>" class="btn btn-outline-secondary">ກັບຄືນ</a>
 </div>
 <div class="invoice-sheet card">
     <div class="invoice-header">
         <div class="company-block">
-            <img src="/logo.php" alt="logo">
+            <img src="<?= url('/logo.php') ?>" alt="logo">
             <div>
                 <h6 style="font-weight: 700;" class="mb-1 ">NTP TRADING PETROLEUM CO., LTD.</h6>
                 <div>Donglouang Village, Naxay Thong District, Vientiane Capital Laos P.D.R</div>

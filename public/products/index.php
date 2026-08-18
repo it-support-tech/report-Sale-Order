@@ -9,7 +9,7 @@ require __DIR__ . '/../partials/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="mb-0">ຂໍ້ມູນສິນຄ້າ</h5>
-    <a href="/products/form.php" class="btn btn-primary">+ ເພີ່ມສິນຄ້າ</a>
+    <a href="<?= url('/products/form.php') ?>" class="btn btn-primary">+ ເພີ່ມສິນຄ້າ</a>
 </div>
 
 <div class="card">
@@ -32,8 +32,8 @@ require __DIR__ . '/../partials/header.php';
                     <td><?= e($product['uom']) ?></td>
                     <td class="text-end"><?= money($product['default_unit_price']) ?></td>
                     <td class="table-actions">
-                        <a href="/products/form.php?id=<?= $product['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
-                        <form action="/products/delete.php" method="post" class="d-inline" onsubmit="return confirm('ລຶບຂໍ້ມູນສິນຄ້ານີ້ບໍ່?');">
+                        <a href="<?= url('/products/form.php') ?>?id=<?= $product['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
+                        <form action="<?= url('/products/delete.php') ?>" method="post" class="d-inline" onsubmit="return confirm('ລຶບຂໍ້ມູນສິນຄ້ານີ້ບໍ່?');">
                             <input type="hidden" name="id" value="<?= $product['id'] ?>">
                             <button type="submit" class="btn btn-sm btn-outline-danger">ລຶບ</button>
                         </form>

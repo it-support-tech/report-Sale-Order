@@ -380,10 +380,10 @@ require __DIR__ . '/../partials/header.php';
 
 <div class="mb-5">
     <button type="submit" class="btn btn-primary btn-lg">ບັນທຶກ Sales Order</button>
-    <a href="/orders/" class="btn btn-outline-secondary btn-lg">ຍົກເລີກ</a>
+    <a href="<?= url('/orders/') ?>" class="btn btn-outline-secondary btn-lg">ຍົກເລີກ</a>
 </div>
 </form>
 
-<script src="/assets/js/order-form.js?v=<?= filemtime(__DIR__ . '/../assets/js/order-form.js') ?>"></script>
+<script src="<?= url('/assets/js/order-form.js') ?>?v=<?= filemtime(__DIR__ . '/../assets/js/order-form.js') ?>"></script>
 
 <?php require __DIR__ . '/../partials/footer.php'; ?>

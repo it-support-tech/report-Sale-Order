@@ -9,7 +9,7 @@ require __DIR__ . '/../partials/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="mb-0">Sales Order</h5>
-    <a href="/orders/form.php" class="btn btn-primary">+ ອອກບິນໃໝ່</a>
+    <a href="<?= url('/orders/form.php') ?>" class="btn btn-primary">+ ອອກບິນໃໝ່</a>
 </div>
 
 <div class="card">
@@ -36,9 +36,9 @@ require __DIR__ . '/../partials/header.php';
                     <td><?= e($order['currency']) ?></td>
                     <td class="text-end"><?= money($order['net_total']) ?></td>
                     <td class="table-actions">
-                        <a href="/orders/view.php?id=<?= $order['id'] ?>" class="btn btn-sm btn-outline-secondary">ເບິ່ງ/Print</a>
-                        <a href="/orders/form.php?id=<?= $order['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
-                        <form action="/orders/delete.php" method="post" class="d-inline" onsubmit="return confirm('ລຶບ Sales Order ນີ້ບໍ່?');">
+                        <a href="<?= url('/orders/view.php') ?>?id=<?= $order['id'] ?>" class="btn btn-sm btn-outline-secondary">ເບິ່ງ/Print</a>
+                        <a href="<?= url('/orders/form.php') ?>?id=<?= $order['id'] ?>" class="btn btn-sm btn-outline-primary">ແກ້ໄຂ</a>
+                        <form action="<?= url('/orders/delete.php') ?>" method="post" class="d-inline" onsubmit="return confirm('ລຶບ Sales Order ນີ້ບໍ່?');">
                             <input type="hidden" name="id" value="<?= $order['id'] ?>">
                             <button type="submit" class="btn btn-sm btn-outline-danger">ລຶບ</button>
                         </form>

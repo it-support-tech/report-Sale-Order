@@ -103,7 +103,7 @@ require __DIR__ . '/../partials/header.php';
 
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary">ບັນທຶກ</button>
-                <a href="/customers/" class="btn btn-outline-secondary">ຍົກເລີກ</a>
+                <a href="<?= url('/customers/') ?>" class="btn btn-outline-secondary">ຍົກເລີກ</a>
             </div>
         </form>
     </div>

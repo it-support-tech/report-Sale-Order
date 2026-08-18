@@ -1,8 +1,14 @@
 <?php
 
+/** Prefix an app-relative path with BASE_PATH, so links work whether the app sits at the domain root or a subfolder. */
+function url(string $path): string
+{
+    return BASE_PATH . '/' . ltrim($path, '/');
+}
+
 function redirect(string $path): never
 {
-    header("Location: $path");
+    header('Location: ' . url($path));
     exit;
 }
 
