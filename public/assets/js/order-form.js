@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const option = bankSelect.selectedOptions[0];
         if (!option || !option.value) return;
         const lines = [`Bank Name: ${option.dataset.bankName || ''}`];
+        if (option.dataset.accountName) lines.push(`Name: ${option.dataset.accountName}`);
         if (option.dataset.accountLak) lines.push(`Number: ${option.dataset.accountLak} - LAK`);
         if (option.dataset.accountThb) lines.push(`Number: ${option.dataset.accountThb} - THB`);
         if (option.dataset.accountUsd) lines.push(`Number: ${option.dataset.accountUsd} - USD`);

@@ -19,27 +19,30 @@ function nav_active(string $needle, string $path): string
     <link href="<?= url('/assets/css/app.css') ?>?v=<?= filemtime(__DIR__ . '/../assets/css/app.css') ?>" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 no-print sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= url('/') ?>">NTP Trading Petroleum</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link <?= nav_active('/orders', $currentPath) ?>" href="<?= url('/orders/') ?>">Sales Order</a></li>
-                <li class="nav-item"><a class="nav-link <?= nav_active('/customers', $currentPath) ?>" href="<?= url('/customers/') ?>">ຂໍ້ມູນລູກຄ້າ</a></li>
-                <li class="nav-item"><a class="nav-link <?= nav_active('/banks', $currentPath) ?>" href="<?= url('/banks/') ?>">ຂໍ້ມູນທະນາຄານ</a></li>
-                <li class="nav-item"><a class="nav-link <?= nav_active('/products', $currentPath) ?>" href="<?= url('/products/') ?>">ຂໍ້ມູນສິນຄ້າ</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid px-4">
-    <?php foreach (flash_messages() as $flash): ?>
-        <div class="alert alert-<?= e($flash['type']) ?> alert-dismissible fade show no-print" role="alert">
-            <?= e($flash['message']) ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    <?php endforeach; ?>
-</div>
+<div class="app-shell d-flex">
+    <aside class="sidebar no-print" id="sidebar">
+        <a class="sidebar-brand" href="<?= url('/') ?>">
+            <img src="<?= url('/logo.php') ?>" alt="logo">
+            <span>NTP Trading<br>Petroleum</span>
+        </a>
+        <nav class="sidebar-nav">
+            <a class="nav-link <?= nav_active('/orders', $currentPath) ?>" href="<?= url('/orders/') ?>">Sales Order</a>
+            <a class="nav-link <?= nav_active('/customers', $currentPath) ?>" href="<?= url('/customers/') ?>">ຂໍ້ມູນລູກຄ້າ</a>
+            <a class="nav-link <?= nav_active('/banks', $currentPath) ?>" href="<?= url('/banks/') ?>">ຂໍ້ມູນທະນາຄານ</a>
+            <a class="nav-link <?= nav_active('/products', $currentPath) ?>" href="<?= url('/products/') ?>">ຂໍ້ມູນສິນຄ້າ</a>
+        </nav>
+    </aside>
+    <div class="sidebar-backdrop no-print" id="sidebarBackdrop"></div>
+
+    <div class="app-main flex-grow-1">
+        <nav class="topbar no-print sticky-top">
+            <button class="sidebar-toggle-btn d-lg-none" type="button" id="sidebarToggle" aria-label="ເປີດ/ປິດ ເມນູ">&#9776;</button>
+            <span class="topbar-title"><?= e($pageTitle ?? '') ?></span>
+        </nav>
+        <div class="container-fluid px-4 pt-4 pb-4">
+            <?php foreach (flash_messages() as $flash): ?>
+                <div class="alert alert-<?= e($flash['type']) ?> alert-dismissible fade show no-print" role="alert">
+                    <?= e($flash['message']) ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endforeach; ?>

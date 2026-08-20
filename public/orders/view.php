@@ -42,7 +42,7 @@ require __DIR__ . '/../partials/header.php';
         </div>
     </div>
     <div class="meta-grid">
-        <div class="box">
+        <div class="box border rounded h-100">
             <h6>Customer</h6>
             <div><?= e($customer['code']) ?> <?= e($customer['company_name']) ?></div>
             <div><?= e(trim(implode(' ', array_filter([$customer['village'], $customer['district'], $customer['province']])))) ?></div><br>
@@ -50,11 +50,11 @@ require __DIR__ . '/../partials/header.php';
             <div class="customer-line">Tel: <?= e($customer['phone']) ?> &nbsp; Fax: <?= e($customer['fax']) ?></div>
             <div class="customer-line">TAX ID: <?= e($customer['tax_id']) ?></div>
         </div>
-        <div class="box">
+        <div class="box border rounded h-100">
             <h6>ShipTo Address</h6>
             <div><?= nl2br(e($order['ship_to_address'])) ?></div>
         </div>
-        <div class="box">
+        <div class="box border rounded h-100">
             <dl>
                 <div>
                     <dt>Document No.</dt>
@@ -142,7 +142,7 @@ require __DIR__ . '/../partials/header.php';
 
         </tbody>
     </table>
-
+                <div class="border-bottom"></div>
     <?php $remarkLines = array_values(array_filter(preg_split('/\r\n|\r|\n/', (string) $order['remark']))); ?>
     <div class="bottom-grid">
         <div class="remark-col">

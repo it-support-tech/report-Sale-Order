@@ -20,6 +20,7 @@ CREATE TABLE customers (
 CREATE TABLE company_banks (
     id           SERIAL PRIMARY KEY,
     bank_name    VARCHAR(255) NOT NULL,
+    account_name VARCHAR(255),
     account_lak  VARCHAR(100),
     account_thb  VARCHAR(100),
     account_usd  VARCHAR(100),

@@ -28,8 +28,6 @@ $pageTitle = $id ? 'ແກ້ໄຂຂໍ້ມູນທະນາຄານ' : '�
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<h5 class="mb-3"><?= e($pageTitle) ?></h5>
-
 <?php if ($errors): ?>
     <div class="alert alert-danger">
         <ul class="mb-0">
@@ -42,9 +40,13 @@ require __DIR__ . '/../partials/header.php';
     <div class="card-body">
         <form method="post">
             <div class="row g-3">
-                <div class="col-12">
+                <div class="col-md-6">
                     <label class="form-label">Bank Name</label>
                     <input type="text" name="bank_name" class="form-control" value="<?= old($bank ?? [], 'bank_name') ?>" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Account Name</label>
+                    <input type="text" name="account_name" class="form-control" value="<?= old($bank ?? [], 'account_name') ?>">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Number - LAK</label>

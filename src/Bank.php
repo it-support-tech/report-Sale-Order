@@ -15,7 +15,7 @@ function bank_find(int $id): ?array
 
 function bank_save(array $data, ?int $id = null): int
 {
-    $fields = ['bank_name', 'account_lak', 'account_thb', 'account_usd', 'swift_code'];
+    $fields = ['bank_name', 'account_name', 'account_lak', 'account_thb', 'account_usd', 'swift_code'];
     $params = [];
     foreach ($fields as $field) {
         $params[$field] = trim($data[$field] ?? '');

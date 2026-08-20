@@ -1,16 +1,221 @@
+:root {
+    --brand-primary: #f93822;
+    --brand-primary-rgb: 249, 56, 34;
+    --brand-primary-hover: #e0321f;
+    --brand-primary-active: #c72d1b;
+    --brand-secondary: #002607;
+}
+
 body {
     background-color: #f4f6f8;
     font-family: 'Noto Sans Lao', sans-serif;
 }
 
+/* ---------- Brand color theme ---------- */
+a {
+    color: var(--brand-primary);
+}
+
+a:hover {
+    color: var(--brand-primary-hover);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--brand-primary);
+    --bs-btn-border-color: var(--brand-primary);
+    --bs-btn-hover-bg: var(--brand-primary-hover);
+    --bs-btn-hover-border-color: var(--brand-primary-hover);
+    --bs-btn-active-bg: var(--brand-primary-active);
+    --bs-btn-active-border-color: var(--brand-primary-active);
+    --bs-btn-focus-shadow-rgb: var(--brand-primary-rgb);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--brand-primary);
+    --bs-btn-border-color: var(--brand-primary);
+    --bs-btn-hover-bg: var(--brand-primary);
+    --bs-btn-hover-border-color: var(--brand-primary);
+    --bs-btn-active-bg: var(--brand-primary);
+    --bs-btn-active-border-color: var(--brand-primary);
+    --bs-btn-focus-shadow-rgb: var(--brand-primary-rgb);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--brand-primary-rgb), 0.2);
+}
+
+/* ---------- App shell: sidebar + topbar ---------- */
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-main {
+    min-width: 0;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: var(--brand-secondary);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 1.25rem 1.25rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 0.75rem;
+}
+
+.sidebar-brand:hover {
+    color: #fff;
+}
+
+.sidebar-brand img {
+    height: 34px;
+    width: 34px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.sidebar-nav {
+    padding: 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.sidebar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.72);
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.sidebar-nav .nav-link.active {
+    background: var(--brand-primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.topbar-title {
+    font-weight: 600;
+    color: #212529;
+}
+
+.sidebar-toggle-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    color: #212529;
+}
+
+.sidebar-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1045;
+        transform: translateX(-100%);
+        transition: transform .2s ease;
+        box-shadow: 2px 0 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-backdrop.show {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 1044;
+    }
+}
+
 .card {
     border: none;
+    border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    padding: 1.25rem 1.5rem;
+}
+
+/* List pages put a table directly inside .card with no .card-body — give it
+   breathing room so cell content doesn't touch the card's rounded edge. */
+.card > .table-responsive,
+.card > .table {
+    padding: 0.5rem;
+}
+
+.table td,
+.table th {
+    padding: 0.65rem 0.75rem;
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-weight: 600;
+    color: #495057;
 }
 
 .table-actions {
     white-space: nowrap;
     width: 1%;
+}
+
+/* Data-entry tables (line items / delivery detail): table-sm's default
+   0.25rem cell padding leaves the inputs touching the borders. */
+.line-items-table td,
+.line-items-table th,
+.deliveries-table td,
+.deliveries-table th {
+    padding: 0.5rem 0.6rem;
 }
 
 .line-items-table input,
@@ -19,6 +224,15 @@ body {
     min-width: 90px;
 }
 
+.form-control,
+.form-select {
+    border-radius: 6px;
+}
+
+.btn {
+    border-radius: 6px;
+}
+
 .stat-card {
-    border-left: 4px solid #0d6efd;
+    border-left: 4px solid var(--brand-primary);
 }

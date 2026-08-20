@@ -60,8 +60,6 @@ $deliveries = $order['deliveries'] ?? [[]];
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<h5 class="mb-3"><?= e($pageTitle) ?></h5>
-
 <?php if ($errors): ?>
     <div class="alert alert-danger">
         <ul class="mb-0">
@@ -153,6 +151,7 @@ require __DIR__ . '/../partials/header.php';
                     <?php foreach ($banks as $bank): ?>
                         <option value="<?= $bank['id'] ?>"
                             data-bank-name="<?= e($bank['bank_name']) ?>"
+                            data-account-name="<?= e($bank['account_name']) ?>"
                             data-account-lak="<?= e($bank['account_lak']) ?>"
                             data-account-thb="<?= e($bank['account_thb']) ?>"
                             data-account-usd="<?= e($bank['account_usd']) ?>"

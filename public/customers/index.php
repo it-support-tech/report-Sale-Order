@@ -7,8 +7,7 @@ $customers = customer_all();
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="mb-0">ຂໍ້ມູນລູກຄ້າ</h5>
+<div class="d-flex justify-content-end mb-3">
     <a href="<?= url('/customers/form.php') ?>" class="btn btn-primary">+ ເພີ່ມລູກຄ້າ</a>
 </div>
 

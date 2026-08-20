@@ -48,10 +48,10 @@ function format_date(?string $date): string
     return $ts ? date('d/m/Y', $ts) : e($date);
 }
 
-/** Suggest the next document number in the form SO-YYMMNNN */
+/** Suggest the next document number in the form 1YYMMNNN */
 function next_document_no(PDO $pdo): string
 {
-    $prefix = 'SO-' . date('ym');
+    $prefix = 'SO-1' . date('ym');
     $stmt = $pdo->prepare(
         "SELECT document_no FROM sales_orders WHERE document_no LIKE :prefix ORDER BY document_no DESC LIMIT 1"
     );

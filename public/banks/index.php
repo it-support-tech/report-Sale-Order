@@ -7,8 +7,7 @@ $banks = bank_all();
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="mb-0">ຂໍ້ມູນທະນາຄານບໍລິສັດ</h5>
+<div class="d-flex justify-content-end mb-3">
     <a href="<?= url('/banks/form.php') ?>" class="btn btn-primary">+ ເພີ່ມທະນາຄານ</a>
 </div>
 
@@ -18,6 +17,7 @@ require __DIR__ . '/../partials/header.php';
             <thead>
             <tr>
                 <th>Bank Name</th>
+                <th>Account Name</th>
                 <th>Number - LAK</th>
                 <th>Number - THB</th>
                 <th>Number - USD</th>
@@ -29,6 +29,7 @@ require __DIR__ . '/../partials/header.php';
             <?php foreach ($banks as $bank): ?>
                 <tr>
                     <td><?= e($bank['bank_name']) ?></td>
+                    <td><?= e($bank['account_name']) ?></td>
                     <td><?= e($bank['account_lak']) ?></td>
                     <td><?= e($bank['account_thb']) ?></td>
                     <td><?= e($bank['account_usd']) ?></td>
@@ -43,7 +44,7 @@ require __DIR__ . '/../partials/header.php';
                 </tr>
             <?php endforeach; ?>
             <?php if (!$banks): ?>
-                <tr><td colspan="6" class="text-center text-muted py-4">ຍັງບໍ່ມີຂໍ້ມູນທະນາຄານ</td></tr>
+                <tr><td colspan="7" class="text-center text-muted py-4">ຍັງບໍ່ມີຂໍ້ມູນທະນາຄານ</td></tr>
             <?php endif; ?>
             </tbody>
         </table>

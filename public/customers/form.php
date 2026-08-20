@@ -37,8 +37,6 @@ $pageTitle = $id ? 'ແກ້ໄຂຂໍ້ມູນລູກຄ້າ' : 'ເ�
 require __DIR__ . '/../partials/header.php';
 ?>
 
-<h5 class="mb-3"><?= e($pageTitle) ?></h5>
-
 <?php if ($errors): ?>
     <div class="alert alert-danger">
         <ul class="mb-0">
