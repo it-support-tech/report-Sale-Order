@@ -120,6 +120,53 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#add-item-row')?.addEventListener('click', addItemRow);
     document.querySelector('#add-delivery-row')?.addEventListener('click', addDeliveryRow);
 
+    function fillDeliveryRow(row, data) {
+        row.querySelector('[name$="[delivery_date]"]').value = data.delivery_date || '';
+        row.querySelector('[name$="[sales_order_no]"]').value = data.sales_order_no || '';
+        row.querySelector('[name$="[liters]"]').value = data.liters || '';
+        row.querySelector('[name$="[delivery_note_no]"]').value = data.delivery_note_no || '';
+        row.querySelector('[name$="[ar_invoice_no]"]').value = data.ar_invoice_no || '';
+        row.querySelector('[name$="[tax_no]"]').value = data.tax_no || '';
+    }
+
+    document.querySelector('#delivery-excel-input')?.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('excel_file', file);
+
+        try {
+            const response = await fetch('import_deliveries.php', { method: 'POST', body: formData });
+            const result = await response.json();
+
+            if (!result.success) {
+                alert(result.message || 'ອັບໂຫລດລົ້ມເຫລວ');
+                return;
+            }
+            if (!result.rows.length) {
+                alert('ບໍ່ພົບຂໍ້ມູນໃນ file');
+                return;
+            }
+
+            deliveriesBody.innerHTML = '';
+            result.rows.forEach((data, index) => {
+                const clone = deliveryTemplate.content.cloneNode(true);
+                const row = clone.querySelector('tr');
+                row.innerHTML = row.innerHTML.replaceAll('__INDEX__', index);
+                deliveriesBody.appendChild(clone);
+                const newRow = deliveriesBody.lastElementChild;
+                fillDeliveryRow(newRow, data);
+                bindDeliveryRow(newRow);
+            });
+            recalcLiters();
+        } catch (err) {
+            alert('ເກີດຂໍ້ຜິດພາດໃນການອັບໂຫລດ file');
+        } finally {
+            e.target.value = '';
+        }
+    });
+
     itemsBody.querySelectorAll('tr').forEach(row => {
         bindRow(row);
         recalcRow(row);

@@ -254,7 +254,14 @@ require __DIR__ . '/../partials/header.php';
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <label class="form-label fw-bold mb-0">ລາຍລະອຽດການສົ່ງ (Delivery Detail)</label>
-            <button type="button" id="add-delivery-row" class="btn btn-sm btn-outline-primary">+ ເພີ່ມແຖວ</button>
+            <div class="d-flex gap-2">
+                <a href="<?= url('/orders/delivery_template.php') ?>" class="btn btn-sm btn-outline-secondary">ດາວໂຫລດ Template</a>
+                <label class="btn btn-sm btn-outline-success mb-0">
+                    ອັບໂຫລດ Excel
+                    <input type="file" id="delivery-excel-input" accept=".xlsx,.xls" hidden>
+                </label>
+                <button type="button" id="add-delivery-row" class="btn btn-sm btn-outline-primary">+ ເພີ່ມແຖວ</button>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-sm table-bordered align-middle deliveries-table">
